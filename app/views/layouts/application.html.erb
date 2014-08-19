@@ -7,20 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="nav">
-      <h1><%= link_to "Odot", root_path %></h1>
-      <ul>
-          <li><%= link_to "Todo Lists", todo_lists_path %></li>
-      </ul>
-      <br class="clear" />
-    </div>
-    <% flash.each do |type, message| %>
-    <div class="alert flash <%= type %>">
-        <%= message %>       
-    </div>
-    <% end %> 
 
-<%= yield %>
+  <div class="nav">
+    <h1><%= link_to "Odot", root_path %></h1>
+    <ul>
+      <li><%= link_to "Todo Lists", todo_lists_path %></li>
+    </ul>
+    <br class="clear" />
+  </div>
+
+  <% flash.each do |type, message| %>
+  <div class="alert flash <%= type %>">
+    <%= message %>
+  </div>
+  <% end %>
+
+<div class="content">
+  <%= yield %>
+</div>
 
 </body>
 </html>
